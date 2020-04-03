@@ -1,4 +1,4 @@
-package lsystems;
+package tests;
 
 import static org.junit.Assert.*;
 
@@ -6,6 +6,18 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.junit.Test;
+
+import lsystems.A_A;
+import lsystems.A_AA;
+import lsystems.A_BC;
+import lsystems.A_Q;
+import lsystems.A_X;
+import lsystems.B_A;
+import lsystems.C_B;
+import lsystems.LLine;
+import lsystems.LRule;
+import lsystems.LSystemLengthException;
+import lsystems.LSystemSymbolException;
 
 public class LLineTest {
 
