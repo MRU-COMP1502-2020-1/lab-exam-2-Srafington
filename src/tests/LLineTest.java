@@ -13,7 +13,9 @@ import lsystems.A_BC;
 import lsystems.A_Q;
 import lsystems.A_X;
 import lsystems.B_A;
+import lsystems.B_AC;
 import lsystems.C_B;
+import lsystems.C_BA;
 import lsystems.LLine;
 import lsystems.LRule;
 import lsystems.LSystemLengthException;
@@ -73,6 +75,44 @@ public class LLineTest {
 		}
 		assertEquals("Expected output ABBCBCABCAABBCAABABBC after 10 runs", 
 				"ABBCBCABCAABBCAABABBC", 
+				line.toString());
+		
+	}
+
+	@Test
+	public void testB_AC() throws LSystemSymbolException, LSystemLengthException {
+		char[] test = {'A'};
+		Set<LRule> rules = new HashSet<LRule>();
+		
+		rules.add(new A_BC());
+		rules.add(new B_AC());
+		rules.add(new C_BA());
+
+		LLine line = new LLine(test, rules);
+		for (int i = 1; i <= 5; i++) {
+			line.process();
+		}
+		assertEquals("Expected output BCBAACBCBCBAACBAACBAACBCBCBAACBC after 5 runs", 
+				"BCBAACBCBCBAACBAACBAACBCBCBAACBC", 
+				line.toString());
+		
+	}
+
+	@Test
+	public void testC_BA() throws LSystemSymbolException, LSystemLengthException {
+		char[] test = {'B'};
+		Set<LRule> rules = new HashSet<LRule>();
+		
+		rules.add(new A_BC());
+		rules.add(new C_BA());
+		rules.add(new B_AC());
+
+		LLine line = new LLine(test, rules);
+		for (int i = 1; i <= 5; i++) {
+			line.process();
+		}
+		assertEquals("Expected output ACBAACBCBCBAACBAACBAACBCBCBAACBC after 5 runs", 
+				"ACBAACBCBCBAACBAACBAACBCBCBAACBC", 
 				line.toString());
 		
 	}
