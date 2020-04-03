@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import lsystems.A_X;
+import lsystems.LRule;
 
 public class A_XTest {
 	
@@ -26,6 +27,11 @@ public class A_XTest {
 		
 		assertEquals(testBody.length, 0);
 
+	}
+
+	@Test
+	public void testInheritance() {
+		assertTrue(testClass instanceof LRule);
 	}
 
 }
